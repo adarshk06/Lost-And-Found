@@ -1,0 +1,69 @@
+{% extends 'store/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  {% block content %}
+
+    <div class="container">
+      <div class="row" style="margin-top: 10px;">
+        <div class="col-md-12">
+          <ul id="item_list" class="list-group">
+          </ul>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-md-12">
+          <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" id="items" name="items">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Name</label>
+                <input id="name" name="name" type="text" class="form-control" id="inputEmail4" placeholder="John" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Email</label>
+                <input id="email" name="email" type="text" class="form-control" id="inputPassword4" placeholder="john@gmail.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputAddress">Address</label>
+              <input id="address" name="address" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                <input id="city" name="city" type="text" class="form-control" id="inputCity" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                  <input id="state" name="state" type="text" class="form-control" id="inputCity" required>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input id="zip" name="zip" type="text" class="form-control" id="inputZip" required>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputZip">Amount to be paid</label>
+                <input readonly="" type="text" class="form-control" id="total" name="total">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Place Order</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+
+</body>
+</html>

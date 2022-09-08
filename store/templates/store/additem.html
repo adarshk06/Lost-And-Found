@@ -1,0 +1,37 @@
+{% extends 'store/base.html' %} {% load static %} {% block content %}
+
+<section class="section-content padding-y">
+  <div class="card mx-auto" style="max-width: 720px; margin-top: 40px">
+    <article class="card-body">
+      <header class="mb-4"><h2 class="card-title">Add Item</h2></header>
+      <img src="{% static 'images/misc/additem.jpg' %}" class="card-img-top" />
+      <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="" class="form-label">Name</label>
+          <input type="text" name="name" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Description</label>
+          <input type="text" name="description" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="category">Choose a category: </label>
+          <select name="category" id="category">
+            <option value="Electronics">Electronics</option>
+            <option value="Clothes">Clothes</option>
+            <option value="Books">Books</option>
+            <option value="Miscellaneous">Miscellaneous</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label>Image: </label>
+          <input type="file" name="image"/>
+        </div>
+        <input type="submit" class="btn btn-primary"></input>
+      </form>
+    </article>
+  </div>
+</section>
+
+{% endblock %}

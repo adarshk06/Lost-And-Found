@@ -1,0 +1,42 @@
+{% extends 'store/base.html' %} {% load static %} {% block content %}
+
+<section class="section-content padding-y bg">
+  <div class="container">
+    <!-- ============================ COMPONENT 1 ================================= -->
+    <div class="card">
+      <div class="row no-gutters">
+        <aside class="col-md-6">
+          <article class="gallery-wrap">
+            <div class="img-big-wrap">
+              <a href="#"><img src="{{ item.image.url }}" /></a>
+            </div>
+            <!-- img-big-wrap.// -->
+          </article>
+          <!-- gallery-wrap .end// -->
+        </aside>
+        <main class="col-md-6 border-left">
+          <article class="content-body">
+            <h2 class="title">{{ item.name }}</h2>
+
+            <p rows="20" cols="50">{{ item.description }}</p>
+
+            <h2>Found by - {{ user.first_name }}</h2>
+
+            <a href="{% url 'checkout' %}" class="btn btn-primary">
+              <span class="text">Claim</span>
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+          </article>
+          <!-- product-info-aside .// -->
+        </main>
+        <!-- col.// -->
+      </div>
+      <!-- row.// -->
+    </div>
+    <!-- card.// -->
+    <!-- ============================ COMPONENT 1 END .// ================================= -->
+  </div>
+  <!-- container .//  -->
+</section>
+
+{% endblock %}

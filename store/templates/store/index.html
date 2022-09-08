@@ -1,0 +1,94 @@
+{% extends 'store/base.html' %} {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% block content %}
+    <section class="section-intro padding-y-sm">
+      <div class="container">
+        <div class="intro-banner-wrap">
+          <img
+            src="{% static 'images/banners/2.png' %}"
+            class="img-fluid rounded"
+          />
+        </div>
+        <br>
+        <h1 style="display: inline; color: #253858; font-size: 3rem; ">G'day, we're&nbsp</h1>
+        <h1 style="display: inline; color: #3166eb; font-size: 3rem; ">Lost&</h1>
+        <h1 style="display: inline; color: #7a7a7a; font-size: 3rem; ">Found.</h1>
+        <h1 style="display: inline; color: #253858; font-size: 3rem; ">We are a platform that help those who have lost their stuff, be it anything, from a pen to a watch to a laptop, by connecting them with those who find them
+        </h1>
+      </div>
+      <!-- container //  -->
+    </section>
+
+    <!-- ========================= SECTION MAIN END// ========================= -->
+
+    <hr style="width: 1500px;">
+
+    <!-- ========================= SECTION  ========================= -->
+
+    <section class="section-name padding-y-sm">
+      <div class="container">
+        <h1 style="font-size: 2.5rem; color: #253858; font-family: 'Montserrat', sans-serif; line-height: 60px; text-align: center;">
+          Report what you Found
+        </h1>
+        <p style="text-align: center; font-size: medium; font-family: 'Montserrat', sans-serif;">
+          Do you have something to report, to help anyone today? Click here to post it on the website!
+        </p>
+        <div class="continer">
+            <div class="col-md-12" style="text-align: center;">
+              <a href="{% url 'additem' %}" type="button" class="btn btn-primary btn-lg">Found an Item</a>
+            </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= SECTION MAIN END// ========================= -->
+    
+    <hr style="width: 1500px;">
+
+    <!-- ========================= SECTION  ========================= -->
+    <section class="section-name padding-y-sm">
+      <div class="container">
+        <header class="section-heading">
+          <a href="{% url 'all-items' %}" class="btn btn-outline-primary float-right"
+            >See all</a
+          >
+          <h3 class="section-title" style="color: #253858; font-family: 'Montserrat', sans-serif;">Recently Found</h3>
+        </header>
+        <!-- sect-heading -->
+
+        <div class="row">
+          {% for prod in item %}
+
+          <div class="col-md-3">
+            <div class="card card-product-grid">
+              <a href="/{{ prod.id }}" class="img-wrap">
+                <img src="{{ prod.image.url }}" />
+              </a>
+              <figcaption class="info-wrap">
+                <a href="./product-detail.html" class="title">{{ prod.name }}</a>
+                <!-- price-wrap.// -->
+              </figcaption>
+            </div>
+          </div>
+          <!-- col.// -->
+          {% endfor %}
+        </div>
+        <!-- row.// -->
+      </div>
+      <!-- container // -->
+    </section>
+    <!-- ========================= SECTION  END// ========================= -->
+
+    {% endblock %}
+  </body>
+</html>

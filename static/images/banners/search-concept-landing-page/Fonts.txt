@@ -1,0 +1,9 @@
+Fonts used in this design:
+
+Font: Roboto
+Author: Christian Robertson
+Url: http://www.fontsquirrel.com/fonts/roboto
+
+Font: Sofia Pro
+Author: Mostardesign
+Url: http://www.fontsquirrel.com/fonts/sofia-pro
